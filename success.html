@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Order Confirmed</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f6f9;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.card{
+background:white;
+width:600px;
+padding:40px;
+border-radius:20px;
+box-shadow:0px 8px 25px rgba(0,0,0,0.15);
+text-align:center;
+}
+
+.success{
+font-size:80px;
+}
+
+h1{
+color:#28a745;
+margin:15px 0;
+}
+
+.details{
+background:#f8f9fa;
+padding:20px;
+border-radius:12px;
+margin-top:20px;
+text-align:left;
+}
+
+.details p{
+margin:10px 0;
+font-size:18px;
+}
+
+.status{
+color:green;
+font-weight:bold;
+}
+
+button{
+margin-top:25px;
+padding:12px 25px;
+background:#0d6efd;
+color:white;
+border:none;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#084298;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="success">✅</div>
+
+<h1>Order Confirmed</h1>
+
+<p>Your request has been successfully submitted.</p>
+
+<div class="details">
+
+<p><b>Customer:</b> {{ customer }}</p>
+
+<p><b>Item:</b> {{ item }}</p>
+
+<p><b>Status:</b>
+<span class="status">
+Confirmed
+</span>
+</p>
+
+<p><b>Order ID:</b>
+EC{{ range(1000,9999) | random }}
+</p>
+
+<p><b>Estimated Service/Delivery:</b>
+Within 24 Hours
+</p>
+
+</div>
+
+<a href="/dashboard">
+<button>
+🏠 Back To Dashboard
+</button>
+</a>
+
+</div>
+
+</body>
+</html>

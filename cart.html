@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shopping Cart</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6f9;
+margin:0;
+}
+
+.header{
+background:linear-gradient(135deg,#ff9800,#ff5722);
+color:white;
+padding:25px;
+text-align:center;
+}
+
+table{
+width:90%;
+margin:30px auto;
+border-collapse:collapse;
+background:white;
+}
+
+th{
+background:#ff9800;
+color:white;
+}
+
+th,td{
+padding:12px;
+border:1px solid #ddd;
+text-align:center;
+}
+
+.checkout{
+text-align:center;
+margin:30px;
+}
+
+button{
+padding:12px 25px;
+background:#28a745;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+<h1>🛒 Shopping Cart</h1>
+</div>
+
+<table>
+
+<tr>
+<th>Cart ID</th>
+<th>Item</th>
+<th>Price</th>
+</tr>
+
+{% for item in items %}
+
+<tr>
+<td>{{item[0]}}</td>
+<td>{{item[1]}}</td>
+<td>₹{{item[2]}}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<div class="checkout">
+
+<a href="/dashboard">
+<button>
+🏠 Back Dashboard
+</button>
+</a>
+
+</div>
+
+</body>
+</html>

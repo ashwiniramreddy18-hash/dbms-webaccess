@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tool Rental</title>
+
+<style>
+
+body{
+font-family:Arial,sans-serif;
+background:#f4f6f9;
+margin:0;
+}
+
+.header{
+background:linear-gradient(135deg,#0d6efd,#00b4d8);
+color:white;
+text-align:center;
+padding:25px;
+}
+
+.container{
+width:90%;
+margin:30px auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0px 4px 15px rgba(0,0,0,0.15);
+transition:0.3s;
+text-align:center;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.icon{
+font-size:50px;
+}
+
+.tool-name{
+font-size:22px;
+font-weight:bold;
+margin-top:10px;
+color:#333;
+}
+
+.price{
+font-size:20px;
+color:#28a745;
+font-weight:bold;
+margin:10px 0;
+}
+
+.available{
+color:green;
+font-weight:bold;
+}
+
+.btn{
+width:100%;
+padding:12px;
+color:white;
+border:none;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+margin-top:10px;
+}
+
+.cart-btn{
+background:#ff9800;
+}
+
+.cart-btn:hover{
+background:#e68900;
+}
+
+.rent-btn{
+background:#28a745;
+}
+
+.rent-btn:hover{
+background:#218838;
+}
+
+.back{
+text-align:center;
+margin:30px;
+}
+
+.back button{
+padding:12px 25px;
+background:#0d6efd;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+.footer{
+text-align:center;
+padding:20px;
+color:gray;
+}
+
+a{
+text-decoration:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+<h1>🛠 Tool Rental Store</h1>
+<p>Rent Professional Electrical Tools</p>
+</div>
+
+<div class="container">
+
+{% for tool in tools %}
+
+<div class="card">
+
+<div class="icon">🛠️</div>
+
+<div class="tool-name">
+{{ tool[1] }}
+</div>
+
+<div class="price">
+₹{{ tool[2] }} / Day
+</div>
+
+<p>
+Status:
+<span class="available">
+{{ tool[3] }}
+</span>
+</p>
+
+<a href="/add_to_cart/{{tool[1]}}/{{tool[2]}}">
+<button class="btn cart-btn">
+🛒 Add To Cart
+</button>
+</a>
+
+<a href="/order/{{tool[1]}}">
+<button class="btn rent-btn">
+⚡ Rent Now
+</button>
+</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+<div class="back">
+<a href="/dashboard">
+<button>🏠 Back Dashboard</button>
+</a>
+</div>
+
+<div class="footer">
+© 2026 Electrician Connect | Tool Rental System
+</div>
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Electrician Connect</title>
+
+<style>
+
+body{
+font-family:Arial,sans-serif;
+background:#f4f6f9;
+margin:0;
+}
+
+.header{
+background:linear-gradient(135deg,#0d6efd,#00b4d8);
+color:white;
+text-align:center;
+padding:25px;
+}
+
+.container{
+width:90%;
+margin:30px auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0px 4px 15px rgba(0,0,0,0.15);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.icon{
+font-size:50px;
+text-align:center;
+}
+
+.name{
+font-size:22px;
+font-weight:bold;
+text-align:center;
+margin-top:10px;
+color:#333;
+}
+
+.info{
+margin-top:15px;
+line-height:1.8;
+font-size:16px;
+}
+
+.available{
+color:green;
+font-weight:bold;
+}
+
+.busy{
+color:red;
+font-weight:bold;
+}
+
+.book-btn{
+width:100%;
+margin-top:15px;
+padding:12px;
+background:#28a745;
+color:white;
+border:none;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+}
+
+.book-btn:hover{
+background:#218838;
+}
+
+.back{
+text-align:center;
+margin:30px;
+}
+
+.back button{
+padding:12px 25px;
+background:#0d6efd;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+.footer{
+text-align:center;
+padding:20px;
+color:gray;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+<h1>⚡ Electrician Connect</h1>
+<p>Book Professional Electricians Near You</p>
+</div>
+
+<div class="container">
+
+{% for e in electricians %}
+
+<div class="card">
+
+<div class="icon">👨‍🔧</div>
+
+<div class="name">
+{{e[1]}}
+</div>
+
+<div class="info">
+
+📞 <b>Phone:</b> {{e[2]}} <br>
+
+📍 <b>Location:</b> {{e[3]}} <br>
+
+⭐ <b>Rating:</b> {{e[4]}} / 5 <br>
+
+⚡ <b>Status:</b>
+
+{% if e[5] == 'Available' %}
+<span class="available">Available</span>
+{% else %}
+<span class="busy">Busy</span>
+{% endif %}
+
+</div>
+
+<a href="/book?electrician={{e[1]}}">
+<button class="book-btn">
+Book Service
+</button>
+</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+<div class="back">
+<a href="/dashboard">
+<button>Back Dashboard</button>
+</a>
+</div>
+
+<div class="footer">
+© 2026 Electrician Connect | Flask + MySQL
+</div>
+
+</body>
+</html>

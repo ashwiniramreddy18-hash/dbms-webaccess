@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI Electrical Assistant</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f6f9;
+min-height:100vh;
+}
+
+.header{
+background:linear-gradient(135deg,#6610f2,#0d6efd);
+color:white;
+text-align:center;
+padding:30px;
+box-shadow:0 4px 15px rgba(0,0,0,0.2);
+}
+
+.header h1{
+font-size:38px;
+margin-bottom:10px;
+}
+
+.header p{
+font-size:16px;
+opacity:0.9;
+}
+
+.container{
+width:90%;
+max-width:700px;
+margin:40px auto;
+}
+
+.chat-box{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 5px 20px rgba(0,0,0,0.15);
+}
+
+.bot{
+background:#eef4ff;
+padding:15px;
+border-radius:12px;
+margin-bottom:20px;
+font-size:16px;
+}
+
+form{
+display:flex;
+gap:10px;
+}
+
+input{
+flex:1;
+padding:14px;
+border:1px solid #ccc;
+border-radius:10px;
+font-size:16px;
+}
+
+input:focus{
+outline:none;
+border-color:#0d6efd;
+}
+
+.ask-btn{
+padding:14px 25px;
+background:#0d6efd;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-size:16px;
+font-weight:bold;
+}
+
+.ask-btn:hover{
+background:#084298;
+}
+
+.answer{
+margin-top:25px;
+padding:20px;
+background:#f8f9fa;
+border-left:5px solid #0d6efd;
+border-radius:10px;
+}
+
+.answer h3{
+color:#0d6efd;
+margin-bottom:10px;
+}
+
+.back{
+text-align:center;
+margin-top:30px;
+}
+
+.back button{
+padding:12px 25px;
+background:#28a745;
+color:white;
+border:none;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+}
+
+.back button:hover{
+background:#218838;
+}
+
+.footer{
+text-align:center;
+padding:20px;
+color:gray;
+margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+<h1>🤖⚡ AI Electrical Assistant</h1>
+<p>Your Smart Electrical Guide & Safety Expert</p>
+</div>
+
+<div class="container">
+
+<div class="chat-box">
+
+<div class="bot">
+👋 Hello! Ask me anything about:
+<br><br>
+✔ Electrical Wiring
+<br>
+✔ Switch Installation
+<br>
+✔ Fan Connections
+<br>
+✔ Safety Precautions
+<br>
+✔ Basic Troubleshooting
+</div>
+
+<form method="POST">
+
+<input
+type="text"
+name="question"
+placeholder="Ask your electrical question here..."
+required>
+
+<button type="submit" class="ask-btn">
+Ask AI
+</button>
+
+</form>
+
+{% if answer %}
+
+<div class="answer">
+
+<h3>🤖 AI Response</h3>
+
+<p>{{ answer }}</p>
+
+</div>
+
+{% endif %}
+
+</div>
+
+<div class="back">
+
+<a href="/dashboard">
+<button>
+🏠 Back Dashboard
+</button>
+</a>
+
+</div>
+
+</div>
+
+<div class="footer">
+© 2026 Electrician Connect | AI Powered Electrical Assistant
+</div>
+
+</body>
+</html>
